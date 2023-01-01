@@ -1,10 +1,10 @@
 //////////////////////////////////vistas//////////////////////////////////////////////
-const inicio = `<header class="pb-5">
+const inicio = `<header class="pb-2">
 <h1 class="text-white fw-bolder text-break display-1">Yincana</h1>
 </header>
 <section class=" d-flex flex-column justify-content-center ">
-<h2 class="text-center text-white">Bienvenido a la yincana de los Reyes Magos</h2>
-<p class="text-center text-white">Encuentra tus regalos</p>
+<h2 class="text-center text-white fw-bold">Regalos perdidos</h2>
+<p class="text-center text-white p-3">Hace unos días, una gran tormenta de arena en el desierto sorprendió a nuestros queridos Reyes Magos….Cuando finalmente se pudieron refugiar, ¡vieron que sus camellos habían desaparecido y con ellos, toda la carga que llevaban! Ahora necesitan la ayuda de todos los niños del mundo para poder llegar a tiempo en la entrega de los regalos</p>
 <div class="text-center">
 <button onclick="start()" id="start_yincana" type="button" class=" btn btn-success btn-lg w-auto">Empezar</button>
 </div>        
@@ -29,15 +29,11 @@ const puzzles = [
         "keyword": "",
         "acertijo": "Siguiendo la estrella de oriente hasta aquí hemos llegado, si miras debajo obtendras tu pista para hallar tus regalos.",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
-
     },
     {
         "nombre": "Segunda prueba",
         "keyword": "tata la mejor",
-        "acertijo": `Aunque tengo cuatro patas,<br>
-yo nunca puedo correr,<br>
-tengo la comida encima,<br>
-y no la puedo comer.<br>`,
+        "acertijo": "Aunque tengo cuatro patas,<br>yo nunca puedo correr,<br>tengo la comida encima,<br>y no la puedo comer.<br>",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
