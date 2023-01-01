@@ -11,13 +11,12 @@ const inicio = `<header class="pb-5">
 </div>        
 </section>`;
 
-const puzzle =`<header class="pb-5">
-<h1 class="text-white fw-bolder text-break display-1">Prueba 1</h1>
+const puzzle =`<header class="p-3 m-0">
+<h1 id="puzzle_name" class="text-white fw-bolder text-break display-1">Prueba 1</h1>
 </header>
 <section class=" d-flex flex-column justify-content-center ">
-<h2 id="puzzle_name" class="text-center"></h2>
-<p id="puzzle_description" class="text-center"></p>
-<div class="text-center">
+<p id="puzzle_description" class="text-center text-white pb-5"></p>
+<div class="text-center mt-0">
     <input id="input-keyword" type="text" class="form-control mb-2" placeholder="Palabra clave">
     <button onclick="nextPuzzle()" id="start_yincana" type="button" class=" btn btn-light btn-lg w-auto">Siguiente</button>
 </div>        
