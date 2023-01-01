@@ -21,6 +21,13 @@ const puzzle =`<header class="p-3 m-0">
     </div>     
     <img id="mapa-tesoro" src="" alt="" class="w-75 m-3">   
 </section>`;
+const final =`<header class="p-3 m-0">
+    <h1 id="puzzle_name" class="text-white fw-bolder text-break display-1"></h1>
+</header>
+<section class=" d-flex flex-column align-items-center">
+    <p id="puzzle_description" class="text-center text-white p-3 "></p>    
+    <img id="mapa-tesoro" src="" alt="" class="w-75 m-3">   
+</section>`;
 
 //////////////////////////////contenido de las pruebas///////////////////////////////////777
 const puzzles = [
@@ -61,7 +68,7 @@ const puzzles = [
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
-        "nombre": "Séptima prueba",
+        "nombre": "¡A por ellos!",
         "keyword": "respira",
         "acertijo": "Los regalos se esconden bajo un remanso de paz",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
@@ -91,34 +98,29 @@ function nextPuzzle (cookie = null){
     switch (input_keyword.toLowerCase()) {
         case puzzles[6].keyword:   
             localStorage.setItem('keyword', puzzles[6].keyword);
-            content_puzzle = puzzles[6]
+            update_main(final)
             update_puzzle(puzzles[6])
             break;
         case puzzles[5].keyword:   
             localStorage.setItem('keyword', puzzles[5].keyword);
-            content_puzzle = puzzles[5]
             update_puzzle(puzzles[5])
             break;
         case puzzles[5].keyword:   
             localStorage.setItem('keyword', puzzles[5].keyword);
-            content_puzzle = puzzles[5]
             update_puzzle(puzzles[5])
             break;
         case puzzles[4].keyword:   
             localStorage.setItem('keyword', puzzles[4].keyword);
-            content_puzzle = puzzles[4]
             update_puzzle(puzzles[4])
             break;
 
         case puzzles[3].keyword:
             localStorage.setItem('keyword', puzzles[3].keyword);
-            content_puzzle = puzzles[3]
             update_puzzle(puzzles[3])
             break;
 
         case puzzles[2].keyword:
             localStorage.setItem('keyword', puzzles[2].keyword);
-            content_puzzle = puzzles[2]
             update_puzzle(puzzles[2])
             break;
 
