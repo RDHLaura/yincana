@@ -123,7 +123,7 @@ function update_puzzle(pz){
 //cuando la pantalla carga si no hay ningún reto resuelto accede a la pág inicial, en caso contrario va al reto que corresponda
 window.onload = ()=>{
     console.log(localStorage.getItem("keyword"))
-    if (localStorage.getItem("keyword")!== null){
+    if (localStorage.getItem("keyword")!== null || localStorage.getItem("keyword")!== ""){
         update_main(puzzle)
         nextPuzzle(localStorage.getItem("keyword"));
     }else{
