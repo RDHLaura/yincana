@@ -78,31 +78,30 @@ function nextPuzzle (cookie = null){
         
 
     switch (input_keyword) {
-        case puzzles[4].keyword:  
-        console.log(4)          
+        case puzzles[4].keyword:   
+            localStorage.setItem('keyword', puzzles[4].keyword);
             content_puzzle = puzzles[4]
             update_puzzle(puzzles[4])
             break;
 
         case puzzles[3].keyword:
-            console.log(3)
+            localStorage.setItem('keyword', puzzles[3].keyword);
             content_puzzle = puzzles[3]
             update_puzzle(puzzles[3])
             break;
 
         case puzzles[2].keyword:
-            console.log(2)
+            localStorage.setItem('keyword', puzzles[2].keyword);
             content_puzzle = puzzles[2]
             update_puzzle(puzzles[2])
             break;
 
         case puzzles[1].keyword:
-            console.log(1)
+            localStorage.setItem('keyword', puzzles[1].keyword);
             update_puzzle(puzzles[1])
             break;
 
         case puzzles[0].keyword:
-            console.log(0)
             content_puzzle = puzzle[0]
             update_puzzle(puzzles[0])
             break;
@@ -111,8 +110,7 @@ function nextPuzzle (cookie = null){
 }
 
 //actualiza la vista con los datos de la siguiente prueba y almacena la última clave obtenida en el localstorage
-function update_puzzle(pz){
-    localStorage.setItem('keyword', pz.keyword);
+function update_puzzle(pz){    
     document.getElementById('puzzle_name').innerHTML =pz.nombre
     document.getElementById('puzzle_description').innerHTML = pz.acertijo
     document.getElementById('mapa-tesoro').src= pz.mapa_tesoro
@@ -122,12 +120,12 @@ function update_puzzle(pz){
 
 //cuando la pantalla carga si no hay ningún reto resuelto accede a la pág inicial, en caso contrario va al reto que corresponda
 window.onload = ()=>{
-    console.log(localStorage.getItem("keyword"))
-    if (localStorage.getItem("keyword")!== null || localStorage.getItem("keyword")!== ""){
+    if (localStorage.getItem("keyword")!== null){
+        console.log( "entra")
         update_main(puzzle)
         nextPuzzle(localStorage.getItem("keyword"));
     }else{
-        update_main(inicio); 
+        update_main(inicio)
     }
 }
 
