@@ -1,32 +1,32 @@
-
 //vistas
 const inicio = `<header class="pb-5">
 <h1 class="text-white fw-bolder text-break display-1">Yincana</h1>
 </header>
 <section class=" d-flex flex-column justify-content-center ">
-<h2 class="text-center">Bienvenido a la yincana de los Reyes Magos</h2>
-<p class="text-center">Encuentra tus regalos</p>
+<h2 class="text-center text-white">Bienvenido a la yincana de los Reyes Magos</h2>
+<p class="text-center text-white">Encuentra tus regalos</p>
 <div class="text-center">
-<button onclick="start()" id="start_yincana" type="button" class=" btn btn-light btn-lg w-auto">Empezar</button>
+<button onclick="start()" id="start_yincana" type="button" class=" btn btn-success btn-lg w-auto">Empezar</button>
 </div>        
 </section>`;
 
 const puzzle =`<header class="p-3 m-0">
-<h1 id="puzzle_name" class="text-white fw-bolder text-break display-1">Prueba 1</h1>
+    <h1 id="puzzle_name" class="text-white fw-bolder text-break display-1">Prueba 1</h1>
 </header>
 <section class=" d-flex flex-column justify-content-center ">
-<p id="puzzle_description" class="text-center text-white pb-5"></p>
-<div class="text-center mt-0">
-    <input id="input-keyword" type="text" class="form-control mb-2" placeholder="Palabra clave">
-    <button onclick="nextPuzzle()" id="start_yincana" type="button" class=" btn btn-light btn-lg w-auto">Siguiente</button>
-</div>        
+    <p id="puzzle_description" class="text-center text-white pb-3 "></p>
+
+    <div class="text-center">
+        <input id="input-keyword" type="text" class=" mb-4 w-75 rounded p-2" placeholder="Palabra clave">
+        <button onclick="nextPuzzle()" id="start_yincana" type="button" class=" btn btn-success btn-lg w-auto ">Siguiente</button>
+    </div>        
 </section>`;
 
 const puzzles = [
     {
         "nombre": "primer prueba",
         "keyword": "",
-        "acertijo": "siguiente"
+        "acertijo": "loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales."
     },
     {
         "nombre": "Arco1",
@@ -46,7 +46,7 @@ const puzzles = [
     {
         "nombre": "Arco4",
         "keyword": "palabra_clave4",
-        "acertijo": "Lo que sea"
+        "acertijo": "loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales."
     }
 ];
 
