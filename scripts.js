@@ -1,4 +1,4 @@
-//vistas
+//////////////////////////////////vistas//////////////////////////////////////////////
 const inicio = `<header class="pb-5">
 <h1 class="text-white fw-bolder text-break display-1">Yincana</h1>
 </header>
@@ -22,38 +22,47 @@ const puzzle =`<header class="p-3 m-0">
     </div>        
 </section>`;
 
+//////////////////////////////contenido de las pruebas///////////////////////////////////777
 const puzzles = [
     {
-        "nombre": "primer prueba",
+        "nombre": "Primera prueba",
         "keyword": "",
-        "acertijo": "loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales."
+        "acertijo": "loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales.",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
+
     },
     {
-        "nombre": "Arco1",
+        "nombre": "Segunda prueba",
         "keyword": "palabra_clave1",
-        "acertijo": "Lo que sea"
+        "acertijo": "Lo que sea",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
-        "nombre": "Arco2",
+        "nombre": "Tercera prueba",
         "keyword": "palabra_clave2",
-        "acertijo": "Lo que sea"
+        "acertijo": "Lo que sea",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
-        "nombre": "Arco3",
+        "nombre": "Cuarta prueba",
         "keyword": "palabra_clave3",
-        "acertijo": "Lo que sea"
+        "acertijo": "Lo que sea",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
-        "nombre": "Arco4",
+        "nombre": "Quinta prueba",
         "keyword": "palabra_clave4",
-        "acertijo": "loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales."
+        "acertijo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales.",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
     }
 ];
 
+/////////////////////7lógica del programa//////////////////////////////////////
+
 let main = document.getElementById('main');
 
-function start (){
-    
+//inicia la yincana, carga los datos de la primera prueba
+function start (){    
     update_main(puzzle)
     nextPuzzle()
 }
@@ -62,6 +71,7 @@ function nextPuzzle (cookie = null){
     let input_keyword = null
     if(cookie === null){
         input_keyword = document.getElementById("input-keyword").value || "";
+        document.getElementById("input-keyword").value = ""; 
     }else{
         input_keyword = cookie
     }
@@ -71,50 +81,46 @@ function nextPuzzle (cookie = null){
         case puzzles[4].keyword:  
         console.log(4)          
             content_puzzle = puzzles[4]
-            storage_keyword(puzzles[4].keyword)
             update_puzzle(puzzles[4])
             break;
 
         case puzzles[3].keyword:
             console.log(3)
             content_puzzle = puzzles[3]
-            storage_keyword(puzzles[3].keyword)
             update_puzzle(puzzles[3])
             break;
 
         case puzzles[2].keyword:
             console.log(2)
             content_puzzle = puzzles[2]
-            storage_keyword(puzzles[2].keyword)
             update_puzzle(puzzles[2])
             break;
 
         case puzzles[1].keyword:
             console.log(1)
-            storage_keyword(puzzles[1].keyword)
             update_puzzle(puzzles[1])
             break;
 
         case puzzles[0].keyword:
             console.log(0)
             content_puzzle = puzzle[0]
-            storage_keyword(puzzles[0].keyword)
             update_puzzle(puzzles[0])
             break;
 
     }
 }
 
+//actualiza la vista con los datos de la siguiente prueba y almacena la última clave obtenida en el localstorage
 function update_puzzle(pz){
-    console.log("update_puzzle")
+    localStorage.setItem('keyword', px.keyword);
     document.getElementById('puzzle_name').innerHTML =pz.nombre
     document.getElementById('puzzle_description').innerHTML = pz.acertijo
+    document.getElementById('mapa-tesoro').src= pz.mapa_tesoro
 }
 
-function storage_keyword (keyword){
-    localStorage.setItem('keyword', keyword);
-}
 
+
+//cuando la pantalla carga si no hay ningún reto resuelto accede a la pág inicial, en caso contrario va al reto que corresponda
 window.onload = ()=>{
     if (localStorage.getItem("keyword")!== ""){
         update_main(puzzle)
@@ -124,7 +130,7 @@ window.onload = ()=>{
     }
 }
 
-
+//actualiza el nodo main con el contenido que se le pasa por parámetro
 function update_main(content){
     main.innerHTML = content;  
 }
