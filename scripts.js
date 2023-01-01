@@ -11,7 +11,7 @@ const inicio = `<header class="pb-5">
 </section>`;
 
 const puzzle =`<header class="p-3 m-0">
-    <h1 id="puzzle_name" class="text-white fw-bolder text-break display-1">Prueba 1</h1>
+    <h1 id="puzzle_name" class="text-white fw-bolder text-break display-1"></h1>
 </header>
 <section class=" d-flex flex-column justify-content-center ">
     <p id="puzzle_description" class="text-center text-white pb-3 "></p>
@@ -68,7 +68,7 @@ function start (){
 }
 
 function nextPuzzle (cookie = null){    
-    let input_keyword = null
+    let input_keyword = ""
     if(cookie === null){
         input_keyword = document.getElementById("input-keyword").value || "";
         document.getElementById("input-keyword").value = ""; 
@@ -112,7 +112,7 @@ function nextPuzzle (cookie = null){
 
 //actualiza la vista con los datos de la siguiente prueba y almacena la última clave obtenida en el localstorage
 function update_puzzle(pz){
-    localStorage.setItem('keyword', px.keyword);
+    localStorage.setItem('keyword', pz.keyword);
     document.getElementById('puzzle_name').innerHTML =pz.nombre
     document.getElementById('puzzle_description').innerHTML = pz.acertijo
     document.getElementById('mapa-tesoro').src= pz.mapa_tesoro
@@ -122,7 +122,8 @@ function update_puzzle(pz){
 
 //cuando la pantalla carga si no hay ningún reto resuelto accede a la pág inicial, en caso contrario va al reto que corresponda
 window.onload = ()=>{
-    if (localStorage.getItem("keyword")!== ""){
+    console.log(localStorage.getItem("keyword"))
+    if (localStorage.getItem("keyword")!== null){
         update_main(puzzle)
         nextPuzzle(localStorage.getItem("keyword"));
     }else{
