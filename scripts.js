@@ -13,13 +13,13 @@ const inicio = `<header class="pb-5">
 const puzzle =`<header class="p-3 m-0">
     <h1 id="puzzle_name" class="text-white fw-bolder text-break display-1"></h1>
 </header>
-<section class=" d-flex flex-column justify-content-center ">
-    <p id="puzzle_description" class="text-center text-white pb-3 "></p>
-
+<section class=" d-flex flex-column align-items-center">
+    <p id="puzzle_description" class="text-center text-white p-3 "></p>
     <div class="text-center">
         <input id="input-keyword" type="text" class=" mb-4 w-75 rounded p-2" placeholder="Palabra clave">
         <button onclick="nextPuzzle()" id="start_yincana" type="button" class=" btn btn-success btn-lg w-auto ">Siguiente</button>
-    </div>        
+    </div>     
+    <img id="mapa-tesoro" src="" alt="" class="w-75 m-3">   
 </section>`;
 
 //////////////////////////////contenido de las pruebas///////////////////////////////////777
@@ -27,32 +27,47 @@ const puzzles = [
     {
         "nombre": "Primera prueba",
         "keyword": "",
-        "acertijo": "loremLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales.",
+        "acertijo": "Siguiendo la estrella de oriente hasta aquí hemos llegado, si miras debajo obtendras tu pista para hallar tus regalos.",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
 
     },
     {
         "nombre": "Segunda prueba",
-        "keyword": "palabra_clave1",
-        "acertijo": "Lo que sea",
+        "keyword": "tata la mejor",
+        "acertijo": `Aunque tengo cuatro patas,<br>
+yo nunca puedo correr,<br>
+tengo la comida encima,<br>
+y no la puedo comer.<br>`,
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
         "nombre": "Tercera prueba",
-        "keyword": "palabra_clave2",
-        "acertijo": "Lo que sea",
+        "keyword": "arco",
+        "acertijo": "En el patio tendrás que cazar tu siguiente pista, afina tu puntería.",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
         "nombre": "Cuarta prueba",
-        "keyword": "palabra_clave3",
-        "acertijo": "Lo que sea",
+        "keyword": "escalada",
+        "acertijo": "Agrio es su sabor, bastante dura su piel y si lo quieres tomar tienes que estrujarlo bien.",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
     },
     {
         "nombre": "Quinta prueba",
-        "keyword": "palabra_clave4",
-        "acertijo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi at nunc imperdiet facilisis. Nulla facilisi. Nulla et orci nibh. Morbi faucibus tempor nibh eu viverra. Sed et tellus mi. Ut at porttitor turpis. Ut sagittis dolor porttitor sem porttitor condimentum. Vestibulum rutrum augue non mattis sodales.",
+        "keyword": "usalo",
+        "acertijo": "Por un túnel subo,<br>por un túnel bajo, <br>y si me aprietas un botón,<br>te hago caso",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
+    },
+    {
+        "nombre": "Sexta prueba",
+        "keyword": "key",
+        "acertijo": "Se acerca el final<br> y aunque el lugar puedas encontrar <br>sin la llave no podrás entrar.",
+        "mapa_tesoro": "./images/mapa_tesoro.jpg"
+    },
+    {
+        "nombre": "Séptima prueba",
+        "keyword": "respira",
+        "acertijo": "Los regalos se esconden bajo un remanso de paz",
         "mapa_tesoro": "./images/mapa_tesoro.jpg"
     }
 ];
@@ -77,7 +92,22 @@ function nextPuzzle (cookie = null){
     }
         
 
-    switch (input_keyword) {
+    switch (input_keyword.toLowerCase()) {
+        case puzzles[6].keyword:   
+            localStorage.setItem('keyword', puzzles[6].keyword);
+            content_puzzle = puzzles[6]
+            update_puzzle(puzzles[6])
+            break;
+        case puzzles[5].keyword:   
+            localStorage.setItem('keyword', puzzles[5].keyword);
+            content_puzzle = puzzles[5]
+            update_puzzle(puzzles[5])
+            break;
+        case puzzles[5].keyword:   
+            localStorage.setItem('keyword', puzzles[5].keyword);
+            content_puzzle = puzzles[5]
+            update_puzzle(puzzles[5])
+            break;
         case puzzles[4].keyword:   
             localStorage.setItem('keyword', puzzles[4].keyword);
             content_puzzle = puzzles[4]
