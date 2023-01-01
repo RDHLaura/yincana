@@ -117,7 +117,7 @@ function storage_keyword (keyword){
 }
 
 window.onload = ()=>{
-    if (localStorage.getItem("keyword")!== undefined){
+    if (localStorage.getItem("keyword")!== ""){
         update_main(puzzle)
         nextPuzzle(localStorage.getItem("keyword"));
     }else{
