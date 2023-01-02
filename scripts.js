@@ -31,7 +31,7 @@ const puzzles = [
     {
         "nombre": "Primera prueba",
         "keyword": "inicio",
-        "acertijo": "Siguiendo la estrella de oriente hasta aquí hemos llegado, si miras debajo obtendras tu pista para hallar tus regalos.",
+        "acertijo": "Siguiendo la estrella de oriente hasta aquí hemos llegado, si miras debajo de ella obtendras tu pista para hallar tus regalos.",
         "ahorcado": "",
         "imagen": "",
         "audio": ""
@@ -71,7 +71,7 @@ const puzzles = [
     {
         "nombre": "Sexta prueba",
         "keyword": "encuentrala",
-        "acertijo": "Se acerca el final<br> y aunque el lugar puedas encontrar <br>sin la llave no podrás entrar.",
+        "acertijo": "Se acerca el final<br>y aunque el lugar puedas encontrar <br>sin la llave no podrás entrar.",
         "ahorcado": "",
         "imagen": "",
         "audio": ""
@@ -117,7 +117,7 @@ const puzzles = [
     {
         "nombre": "Quiz Game", //10
         "keyword": "expelliarmus",
-        "acertijo": "¿Cual de los siguientes es un indicativo de lugar?<br>A. ay<br>B. hay<br>C. ahí<br>D. ai",
+        "acertijo": "¿Cual de los siguientes es un adverbio de lugar?<br>A. ay<br>B. hay<br>C. ahí<br>D. ai",
         "ahorcado": "_ A M A _ T _",
         "imagen": "",
         "audio": ""
@@ -156,6 +156,11 @@ const puzzles = [
     }
 ];
 
+let listKeys = []
+puzzles.map(element=>{
+    listKeys.push(element.keyword)
+})
+console.log(listKeys)
 /////////////////////7lógica del programa//////////////////////////////////////
 
 //inicia la yincana, carga los datos de la primera prueba 
