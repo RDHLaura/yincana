@@ -177,6 +177,7 @@ function nextPuzzle (){
         //elimina el nodo del input si se trata del último reto
         if(next_puzzle[0].keyword === puzzles[puzzles.length - 1].keyword){
             document.getElementById("container-keyword").remove();
+            localStorage.removeItem("keyword")
         }
         update_puzzle(next_puzzle[0])
     }else{
