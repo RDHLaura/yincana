@@ -1,5 +1,3 @@
-import puzzles from './data.json' assert { type: 'JSON' };
-console.log(puzzles)
 //////////////////////////////////vistas//////////////////////////////////////////////
 const inicio = `<header class="pb-2">
     <h1 class="text-white fw-bolder text-break display-1">Yincana</h1>
@@ -27,7 +25,131 @@ const puzzle =`<header class="p-3 m-0">
 </section>`;
 
 
-//const puzzles = [
+
+//////////////////////////////contenido de las pruebas///////////////////////////////////777
+const puzzles = [
+    {
+        "nombre": "Primera prueba",
+        "keyword": "inicio",
+        "acertijo": "Siguiendo la estrella de oriente hasta aquí hemos llegado, si miras debajo de ella obtendras tu pista para hallar tus regalos.",
+        "ahorcado": "",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Segunda prueba",
+        "keyword": "tata la mejor",
+        "acertijo": "Aunque tengo cuatro patas,<br>yo nunca puedo correr,<br>tengo la comida encima,<br>y no la puedo comer.<br>",
+        "ahorcado": "",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Tercera prueba",
+        "keyword": "arco",
+        "acertijo": "En el patio tendrás que cazar tu siguiente pista, afina tu puntería.",
+        "ahorcado": "",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Cuarta prueba",
+        "keyword": "escalada",
+        "acertijo": "Agrio es su sabor, bastante dura su piel y si lo quieres tomar tienes que estrujarlo bien.",
+        "ahorcado": "",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Quinta prueba",
+        "keyword": "usalo",
+        "acertijo": "Por un túnel subo,<br>por un túnel bajo, <br>y si me aprietas un botón,<br>te hago caso",
+        "ahorcado": "",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Sexta prueba",
+        "keyword": "encuentrala",
+        "acertijo": "Se acerca el final<br>y aunque el lugar puedas encontrar <br>sin la llave no podrás entrar.",
+        "ahorcado": "",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Quiz Game",
+        "keyword": "palabra final",
+        "acertijo": "Al ahorcado tendrás que jugar si la última pista quieres completar.<br>Tendrás una letra por cada respuesta correcta.<br><br>¿A qué país pertence esta bandera?",
+        "ahorcado": "_ _ _ _ _ _ _",
+        "imagen": "./images/bandera_quiz.jpg",
+        "audio": ""
+    },
+    {
+        "nombre": "Quiz Game", //11
+        "keyword": "sudafrica",
+        "acertijo": "¿Cúal es el único número que tiene tantas letras como indica su cifra",
+        "ahorcado": "_ _ M _ _ _ _",
+        "imagen": "",
+        "audio": ""
+    },
+
+    {
+        "nombre": "Quiz Game", //por aquí
+        "keyword": "cinco",
+        "acertijo": "Descubre la película que tu madre te escenifica a continuación...",
+        "ahorcado": "_ _ M _ _ T _",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Quiz Game", //9
+        "keyword": "solo en casa",
+        "acertijo": ` ¿Qué hechizo usó Harry para matar a Lord Voldemort?<br>
+        A. expelliarmus<br>
+        B. Expecto Patronum<br>
+        C. Avada Kedavra<br>
+        D. accio<br>`,
+        "ahorcado": "_ A M _ _ T _",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Quiz Game", //10
+        "keyword": "expelliarmus",
+        "acertijo": "¿Cual de los siguientes es un adverbio de lugar?<br>A. ay<br>B. hay<br>C. ahí<br>D. ai",
+        "ahorcado": "_ A M A _ T _",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Quiz Game", //11
+        "keyword": "ahi",
+        "acertijo": "Si un gallo pone 3 huevos cada 2 días. ¿Cuántos días tardarán 4 gallos en poner 2 docenas de huevos?",
+        "ahorcado": "_ A M A S T _",
+        "imagen": "",
+        "audio": ""
+    },
+    {
+        "nombre": "Quiz Game",
+        "keyword": "dos",
+        "acertijo": "Completa la frase de la canción...",
+        "ahorcado": "_ A M A S T E",
+        "imagen": ".",
+        "audio": `<audio controls>
+        <source src="./audio/lapatrulla.mp3" type="audio/mpeg">    
+        </audio>`
+    },
+
+    {
+        "nombre": "¡A por ellos!", //11
+        "keyword": "la maria para que no te lleven a comisaria",
+        "acertijo": "Los regalos se esconden bajo un remanso de paz",
+        "ahorcado": "N A M A S T E",
+        "imagen": "Los regalos se esconden bajo un remanso de paz",
+        "audio": ""
+    },
+
+];
 
 
 /////////////////////lógica del programa//////////////////////////////////////
