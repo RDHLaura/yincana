@@ -85,18 +85,17 @@ const puzzles = [
         "audio": ""
     },
     {
-        "nombre": "Quiz Game",
+        "nombre": "Quiz Game", //11
         "keyword": "sudafrica",
-        "acertijo": "Completa la frase de la canción...",
+        "acertijo": "¿Cúal es el único número que tiene tantas letras como indica su cifra",
         "ahorcado": "_ _ M _ _ _ _",
-        "imagen": ".",
-        "audio": `<audio controls>
-        <source src="./audio/lapatrulla.mp3" type="audio/mpeg">    
-        </audio>`
+        "imagen": "",
+        "audio": ""
     },
+
     {
         "nombre": "Quiz Game", //por aquí
-        "keyword": "la maria para que no te lleven a comisaria",
+        "keyword": "cinco",
         "acertijo": "Descubre la película que tu madre te escenifica a continuación...",
         "ahorcado": "_ _ M _ _ T _",
         "imagen": "",
@@ -125,43 +124,35 @@ const puzzles = [
     {
         "nombre": "Quiz Game", //11
         "keyword": "ahi",
-        "acertijo": "",
+        "acertijo": "Si un gallo pone 3 huevos cada 2 días. ¿Cuántos días tardarán 4 gallos en poner 2 docenas de huevos?",
         "ahorcado": "_ A M A S T _",
         "imagen": "",
         "audio": ""
     },
     {
-        "nombre": "Quiz Game", //11
-        "keyword": "11",
-        "acertijo": "",
+        "nombre": "Quiz Game",
+        "keyword": "dos",
+        "acertijo": "Completa la frase de la canción...",
         "ahorcado": "_ A M A S T E",
-        "imagen": "",
-        "audio": ""
+        "imagen": ".",
+        "audio": `<audio controls>
+        <source src="./audio/lapatrulla.mp3" type="audio/mpeg">    
+        </audio>`
     },
+
     {
-        "nombre": "Quiz Game", //11
-        "keyword": "22",
-        "acertijo": "",
+        "nombre": "¡A por ellos!", //11
+        "keyword": "la maria para que no te lleven a comisaria",
+        "acertijo": "Los regalos se esconden bajo un remanso de paz",
         "ahorcado": "N A M A S T E",
-        "imagen": "",
+        "imagen": "Los regalos se esconden bajo un remanso de paz",
         "audio": ""
     },
-    { //12
-        "nombre": "¡A por ellos!",
-        "keyword": "respira",
-        "acertijo": "Los regalos se esconden bajo un remanso de paz",
-        "ahorcado": "",
-        "imagen": "",
-        "audio": ""
-    }
+
 ];
 
-let listKeys = []
-puzzles.map(element=>{
-    listKeys.push(element.keyword)
-})
-console.log(listKeys)
-/////////////////////7lógica del programa//////////////////////////////////////
+
+/////////////////////lógica del programa//////////////////////////////////////
 
 //inicia la yincana, carga los datos de la primera prueba 
 function start (){   
