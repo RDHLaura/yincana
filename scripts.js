@@ -79,7 +79,9 @@ const puzzles = [
     {
         "nombre": "Quiz Game",
         "keyword": "palabra final",
-        "acertijo": "Al ahorcado tendrás que jugar si la última pista quieres completar.<br>Tendrás una letra por cada respuesta correcta.<br><br>¿A qué país pertence esta bandera?",
+        "acertijo": `Al ahorcado tendrás que jugar si la última pista quieres completar.<br>
+        Tendrás una letra por cada respuesta correcta.<br><br>
+        ¿A qué país pertence esta bandera?`,
         "ahorcado": "_ _ _ _ _ _ _",
         "imagen": "./images/bandera_quiz.jpg",
         "audio": ""
