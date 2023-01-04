@@ -133,7 +133,7 @@ const puzzles = [
     },
     {
         "nombre": "Quiz Game",
-        "keyword": "dos",
+        "keyword": "cuatro",
         "acertijo": "Completa la frase de la canción...",
         "ahorcado": "_ A M A S T E",
         "imagen": ".",
@@ -166,8 +166,11 @@ function start (){
 
 function nextPuzzle (){   
     //si no se ha recargado la pag coge el valor del input y si no hay nada el de la key del localstorage
-    const input_keyword = document.getElementById("input-keyword").value || localStorage.getItem("keyword") 
-    const next_puzzle = puzzles.filter(element=>{return element.keyword===input_keyword.toLowerCase()});
+    const input_keyword = document.getElementById("input-keyword").value || localStorage.getItem("keyword")
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+    const next_puzzle = puzzles.filter(element=>{return element.keyword===removeAccents(input_keyword.toLowerCase())});
     //si la palabra clave no coincide con ningún reto carga la pantalla de inicio, en caso contrario carga los datos del siguiente reto
     if(next_puzzle.length !== null){
         document.getElementById("input-keyword").value = ""; //limpia el valor del input keyword
