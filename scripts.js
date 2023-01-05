@@ -126,7 +126,7 @@ const puzzles = [
     {
         "nombre": "Quiz Game", //11
         "keyword": "ahi",
-        "acertijo": "Si un gallo pone 3 huevos cada 2 días. ¿Cuántos días tardarán 4 gallos en poner 2 docenas de huevos?",
+        "acertijo": "Si una gallina pone 3 huevos cada 2 días. ¿Cuántos días tardarán 4 gallinas en poner 2 docenas de huevos?",
         "ahorcado": "_ A M A S T _",
         "imagen": "",
         "audio": ""
@@ -170,7 +170,7 @@ function nextPuzzle (){
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
-    const next_puzzle = puzzles.filter(element=>{return element.keyword===removeAccents(input_keyword.toLowerCase())});
+    const next_puzzle = puzzles.filter(element=>{return element.keyword===removeAccents(input_keyword.toLowerCase()).trim()});
     //si la palabra clave no coincide con ningún reto carga la pantalla de inicio, en caso contrario carga los datos del siguiente reto
     if(next_puzzle.length !== null){
         document.getElementById("input-keyword").value = ""; //limpia el valor del input keyword
