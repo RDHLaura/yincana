@@ -1,10 +1,16 @@
 //////////////////////////////////vistas//////////////////////////////////////////////
 const inicio = `<header class="pb-2">
-    <h1 class="text-white fw-bolder text-break display-1">Yincana</h1>
+    <h1 class="text-white fw-bolder text-break display-1">Regalos perdidos</h1>
 </header>
 <section class=" d-flex flex-column justify-content-center ">
-    <h2 class="text-center text-white fw-bold">Regalos perdidos</h2>
-    <p class="text-center text-white p-3">Hace unos días, una gran tormenta de arena en el desierto sorprendió a nuestros queridos Reyes Magos….Cuando finalmente se pudieron refugiar, ¡vieron que sus camellos habían desaparecido y con ellos, toda la carga que llevaban! Ahora necesitan la ayuda de todos los niños del mundo para poder llegar a tiempo en la entrega de los regalos</p>
+    <h2 class="text-center text-white fw-bold">¡Hola Tatito!</h2>
+    <p class="text-center text-white p-3">Hace unos días, una gran tormenta de arena en el desierto sorprendió 
+    a nuestros queridos Reyes Magos….Cuando finalmente se pudieron refugiar, ¡vieron que sus camellos habían desaparecido 
+    y con ellos, toda la carga que llevaban!<br> No saben dónde han podido dejar los regalos, pero aún tienes una oportunidad
+     para encontrarlos. Los camellos han escondido algunas pistas, podrás encontrarlas resolviendo unas peligrosas pruebas.<br>
+     ¡Ánimo!.</p>
+    <p class="text-center text-white pb-3">
+    Pd: Las palabras claves pueden servirte, recuerdalas cuando estés resolviendo los retos.</p>
     <div class="text-center">
         <button onclick="start()" id="start_yincana" type="button" class=" btn btn-success btn-lg w-auto">Empezar</button>
     </div>        
@@ -23,7 +29,6 @@ const puzzle =`<header class="p-3 m-0">
     <img id="imagen" src="" alt="" class="w-75 m-3">  
     <div id="audio"></div>    
 </section>`;
-
 
 
 //////////////////////////////contenido de las pruebas///////////////////////////////////777
@@ -55,7 +60,7 @@ const puzzles = [
     {
         "nombre": "Cuarta prueba",
         "keyword": "escalada",
-        "acertijo": "Agrio es su sabor, bastante dura su piel y si lo quieres tomar tienes que estrujarlo bien.",
+        "acertijo": "Ácido es su sabor, bastante dura su piel y si lo quieres tomar tienes que estrujarlo bien.",
         "ahorcado": "",
         "imagen": "",
         "audio": ""
@@ -70,7 +75,7 @@ const puzzles = [
     },
     {
         "nombre": "Sexta prueba",
-        "keyword": "encuentrala",
+        "keyword": "buscala",
         "acertijo": "Se acerca el final<br>y aunque el lugar puedas encontrar <br>sin la llave no podrás entrar.",
         "ahorcado": "",
         "imagen": "",
@@ -167,24 +172,27 @@ function start (){
 function nextPuzzle (){   
     //si no se ha recargado la pag coge el valor del input y si no hay nada el de la key del localstorage
     const input_keyword = document.getElementById("input-keyword").value || localStorage.getItem("keyword")
-    const removeAccents = (str) => {
+
+    const removeAccents = (str) => { //elimina los acentos del string
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
-    const next_puzzle = puzzles.filter(element=>{return element.keyword===removeAccents(input_keyword.toLowerCase()).trim()});
-    //si la palabra clave no coincide con ningún reto carga la pantalla de inicio, en caso contrario carga los datos del siguiente reto
-    if(next_puzzle.length !== null){
-        document.getElementById("input-keyword").value = ""; //limpia el valor del input keyword
-        localStorage.setItem('keyword', next_puzzle[0].keyword);
-        //elimina el nodo del input si se trata del último reto
-        if(next_puzzle[0].keyword === puzzles[puzzles.length - 1].keyword){
-            document.getElementById("container-keyword").remove();
-            localStorage.removeItem("keyword")
-        }
-        update_puzzle(next_puzzle[0])
-    }else{
-        update_main(inicio)
-    }    
+
+    //devuelve el puzzle que corresponda con la palabra clave introducida por el usuario, en caso contrario un null
+    const next_puzzle = puzzles.filter((element)=>{
+        return element.keyword===removeAccents(input_keyword.toLowerCase()).trim()
+    });
+
+
+    document.getElementById("input-keyword").value = ""; //limpia el valor del input keyword
+
+    //elimina el nodo del input si se trata del último reto
+    if(next_puzzle[0].keyword === puzzles[puzzles.length - 1].keyword){
+        document.getElementById("container-keyword").remove();
+    }
+    localStorage.setItem('keyword', next_puzzle[0].keyword);
+    update_puzzle(next_puzzle[0])
 }
+
 
 //actualiza la vista con los datos de la siguiente prueba y almacena la última clave obtenida en el localstorage
 function update_puzzle(pz){    
@@ -193,12 +201,11 @@ function update_puzzle(pz){
     document.getElementById('imagen').src= pz.imagen
     document.getElementById('ahorcado').innerHTML =pz.ahorcado
     document.getElementById('audio').innerHTML =pz.audio
-    
 }
 
 
-//cuando la pantalla carga si no hay ningún reto resuelto accede a la pág inicial, en caso contrario va al reto que corresponda
-window.onload = ()=>{ 
+//cuando la pantalla carga si no hay ningún reto resuelto accede a la pág inicial, en caso contrario va al reto que corresponda según el localstorage
+window.onload = ()=>{
     if (localStorage.getItem("keyword")!== null){
         update_main(puzzle)
         nextPuzzle();
@@ -211,4 +218,9 @@ window.onload = ()=>{
 function update_main(content){
     const main = document.getElementById('main');
     main.innerHTML = content;  
+}
+
+function reiniciarJuego(){
+    localStorage.removeItem('keyword');
+    location.reload();
 }
